@@ -41,7 +41,7 @@ class ContainerTest extends TestCase
     /**
      * Test setup Container from array and get as array
      */
-    public function testContainerSetterAndGetter()
+    public function testSetFromArray()
     {
         $this->class->setFromArray($this->example);
 
@@ -62,58 +62,6 @@ class ContainerTest extends TestCase
         self::assertArrayHasKey('quz', $result);
         self::assertNull($result['foo']);
         self::assertNull($result['quz']);
-    }
-
-    /**
-     * Test RegularAccess trait
-     */
-    public function testRegularAccess()
-    {
-        $this->class->set('foo', 'bar');
-        $this->class->set('quz', 'qux');
-
-        $this->class->delete('quz');
-
-        self::assertEquals('bar', $this->class->get('foo'));
-        self::assertFalse($this->class->has('quz'));
-        self::assertFalse($this->class->has('some other'));
-        self::assertNull($this->class->get('quz'));
-    }
-
-    /**
-     * Test MagicAccess trait
-     */
-    public function testMagicAccess()
-    {
-        $this->class->foo = 'bar';
-        $this->class->quz = 'qux';
-
-        unset($this->class->quz);
-
-        self::assertEquals('bar', $this->class->foo);
-        self::assertFalse(isset($this->class->quz));
-        self::assertFalse(isset($this->class->some));
-        self::assertEmpty($this->class->quz);
-        self::assertEmpty($this->class->some);
-        self::assertNull($this->class->quz);
-    }
-
-    /**
-     * Test ArrayAccess trait
-     */
-    public function testArrayAccess()
-    {
-        $this->class['foo'] = 'bar';
-        $this->class['quz'] = 'qux';
-
-        unset($this->class['quz']);
-
-        self::assertEquals('bar', $this->class['foo']);
-        self::assertFalse(isset($this->class['quz']));
-        self::assertFalse(isset($this->class['some']));
-        self::assertEmpty($this->class['quz']);
-        self::assertEmpty($this->class['some']);
-        self::assertNull($this->class['quz']);
     }
 
     /**

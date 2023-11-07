@@ -21,7 +21,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/phpunit"
+        "test": "vendor/bin/phpunit",
+        "style": "vendor/bin/phpcs ./src --standard=PSR12 --encoding=utf-8"
     },
     "authors": [
         {

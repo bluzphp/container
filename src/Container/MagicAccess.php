@@ -44,7 +44,7 @@ trait MagicAccess
      *
      * @return mixed
      */
-    public function __get(string $key)
+    public function __get(string $key): mixed
     {
         return $this->doGetContainer($key);
     }

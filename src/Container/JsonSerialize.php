@@ -17,6 +17,8 @@ namespace Bluz\Container;
  * @package  Bluz\Common
  * @author   Anton Shevchuk
  * @see      JsonSerializable
+ *
+ * @method   array toArray()
  */
 trait JsonSerialize
 {
@@ -25,7 +27,7 @@ trait JsonSerialize
      *
      * @return array
      */
-    public function jsonSerialize(): mixed
+    public function jsonSerialize(): array
     {
         return $this->toArray();
     }

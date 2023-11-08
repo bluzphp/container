@@ -24,8 +24,8 @@ use Bluz\Container\RegularAccess;
  *
  * @author   Anton Shevchuk
  */
-class ConcreteContainer implements \JsonSerializable
+class RegularContainer
 {
     use Container;
-    use JsonSerialize;
+    use RegularAccess;
 }

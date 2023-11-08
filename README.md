@@ -1,7 +1,7 @@
 # Container Component
 ## Achievements
 
-[![PHP >= 8.0+](https://img.shields.io/packagist/php-v/bluzphp/container.svg?style=flat)](https://php.net/)
+[![PHP >= 8.2+](https://img.shields.io/packagist/php-v/bluzphp/container.svg?style=flat)](https://php.net/)
 
 [![Latest Stable Version](https://img.shields.io/packagist/v/bluzphp/container.svg?label=version&style=flat)](https://packagist.org/packages/bluzphp/container)
 
@@ -31,11 +31,18 @@ class Registry {
 
 ### Methods
 
-Trait `Container\Container`:
+Public methods of the `Container\Container`:
 
 * `setFromArray(array $data)`
 * `toArray()`
 * `resetArray()`
+* 
+Protected methods of the `Container\Container`:
+
+* `doSetContainer(string $key, mixed $value)` - set the `value` by the `key`
+* `doGetContainer(string $key)` – if the container has the `key`, then it returns the `value`, otherwise `null`
+* `doContainsContainer(string $key)` - check the container for the `key`
+* `doDeleteContainer(string $key)` - remove the `value` by the `key`
 
 Methods of the `Container\ArrayAccess` (implementation of the interface `ArrayAccess`):
 * `offsetSet($offset, $value)`
@@ -51,8 +58,8 @@ Methods of the  `Container\MagicAccess`:
 
 Methods of the `Container\RegularAccess`:
 * `set($key, $value)`
-* `get($key)` - implementation of the PSR-11: Container interface
-* `has($key)` - implementation of the PSR-11: Container interface
+* `get($key)`
+* `has($key)`
 * `remove($key)`
 
 Methods of the `Container\JsonSerialize`

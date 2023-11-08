@@ -56,7 +56,7 @@ trait ArrayAccess
     }
 
     /**
-     * Whether a offset exists
+     * Whether an offset exists
      *
      * @param  mixed $offset
      *

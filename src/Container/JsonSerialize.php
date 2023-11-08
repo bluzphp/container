@@ -17,6 +17,8 @@ namespace Bluz\Container;
  * @package  Bluz\Common
  * @author   Anton Shevchuk
  * @see      JsonSerializable
+ *
+ * @method   array toArray()
  */
 trait JsonSerialize
 {

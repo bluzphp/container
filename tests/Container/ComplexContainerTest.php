@@ -7,22 +7,23 @@
 
 namespace Bluz\Tests\Container;
 
-use Bluz\Tests\Container\Fixtures\MagicContainer;
+use Bluz\Tests\Container\Fixtures\ComplexContainer;
 use PHPUnit\Framework\TestCase;
 
 /**
- * Tests for MagicContainer
+ * Tests for ComplexContainer
  *
  * @package  Bluz\Tests\Common
  *
  * @author   Anton Shevchuk
  */
-class MagicContainerTest extends TestCase
+class ComplexContainerTest extends TestCase
 {
+
     /**
-     * @var MagicContainer
+     * @var ComplexContainer
      */
-    protected MagicContainer $class;
+    protected ComplexContainer $class;
 
     protected array $example = [
         'foo' => 'bar',
@@ -35,7 +36,25 @@ class MagicContainerTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->class = new MagicContainer();
+        $this->class = new ComplexContainer();
+    }
+
+    /**
+     * Test ArrayAccess trait
+     */
+    public function testArrayAccess()
+    {
+        $this->class['foo'] = 'bar';
+        $this->class['quz'] = 'qux';
+
+        unset($this->class['quz']);
+
+        self::assertEquals('bar', $this->class['foo']);
+        self::assertFalse(isset($this->class['quz']));
+        self::assertFalse(isset($this->class['some']));
+        self::assertEmpty($this->class['quz']);
+        self::assertEmpty($this->class['some']);
+        self::assertNull($this->class['quz']);
     }
 
     /**
@@ -54,5 +73,15 @@ class MagicContainerTest extends TestCase
         self::assertEmpty($this->class->quz);
         self::assertEmpty($this->class->some);
         self::assertNull($this->class->quz);
+    }
+
+    /**
+     * Test JsonSerialize implementation
+     */
+    public function testJsonSerialize()
+    {
+        $this->class->setFromArray($this->example);
+
+        self::assertJsonStringEqualsJsonString(json_encode($this->example), json_encode($this->class));
     }
 }

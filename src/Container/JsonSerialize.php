@@ -17,11 +17,11 @@ namespace Bluz\Container;
  * @package  Bluz\Common
  * @author   Anton Shevchuk
  * @see      JsonSerializable
- *
- * @method   array toArray()
  */
 trait JsonSerialize
 {
+    use Container;
+
     /**
      * Specify data which should be serialized to JSON
      *

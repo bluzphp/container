@@ -19,14 +19,11 @@ use InvalidArgumentException;
  * @package  Bluz\Common
  * @author   Anton Shevchuk
  * @see      ArrayAccess
- *
- * @method   void  doSetContainer(string $key, mixed $value)
- * @method   mixed doGetContainer(string $key)
- * @method   bool  doContainsContainer(string $key)
- * @method   void  doDeleteContainer(string $key)
  */
 trait ArrayAccess
 {
+    use Container;
+
     /**
      * Offset to set
      *

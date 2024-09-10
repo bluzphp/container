@@ -11,14 +11,10 @@
 
 namespace Bluz\Tests\Container\Fixtures;
 
-use Bluz\Container\ArrayAccess;
-use Bluz\Container\Container;
-use Bluz\Container\JsonSerialize;
 use Bluz\Container\MagicAccess;
-use Bluz\Container\RegularAccess;
 
 /**
- * Concrete class with Container trait
+ * Concrete class with MagicAccess trait
  *
  * @package  Bluz\Tests\Common
  *
@@ -26,6 +22,5 @@ use Bluz\Container\RegularAccess;
  */
 class MagicContainer
 {
-    use Container;
     use MagicAccess;
 }

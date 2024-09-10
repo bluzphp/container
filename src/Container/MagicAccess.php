@@ -16,14 +16,11 @@ namespace Bluz\Container;
  *
  * @package  Bluz\Common
  * @author   Anton Shevchuk
- *
- * @method   void  doSetContainer(string $key, mixed $value)
- * @method   mixed doGetContainer(string $key)
- * @method   bool  doContainsContainer(string $key)
- * @method   void  doDeleteContainer(string $key)
  */
 trait MagicAccess
 {
+    use Container;
+
     /**
      * Magic alias for set() regular method
      *

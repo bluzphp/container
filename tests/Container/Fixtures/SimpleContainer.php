@@ -11,16 +11,16 @@
 
 namespace Bluz\Tests\Container\Fixtures;
 
-use Bluz\Container\RegularAccess;
+use Bluz\Container\Container;
 
 /**
- * Concrete class with RegularAccess trait
+ * Concrete class with just Container trait
  *
  * @package  Bluz\Tests\Common
  *
  * @author   Anton Shevchuk
  */
-class RegularContainer
+class SimpleContainer
 {
-    use RegularAccess;
+    use Container;
 }

@@ -11,16 +11,16 @@
 
 namespace Bluz\Tests\Container\Fixtures;
 
-use Bluz\Container\RegularAccess;
+use Bluz\Container\JsonSerialize;
 
 /**
- * Concrete class with RegularAccess trait
+ * Concrete class with JsonSerialize trait
  *
  * @package  Bluz\Tests\Common
  *
  * @author   Anton Shevchuk
  */
-class RegularContainer
+class JsonContainer implements \JsonSerializable
 {
-    use RegularAccess;
+    use JsonSerialize;
 }

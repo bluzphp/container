@@ -9,10 +9,10 @@ namespace Bluz\Tests\Container;
 
 use Bluz\Tests\Container\Fixtures\RegularContainer;
 use PHPUnit\Framework\TestCase;
-use Bluz\Tests\Container\Fixtures\ConcreteContainer;
+use Bluz\Tests\Container\Fixtures\SimpleContainer;
 
 /**
- * Tests for Container traits
+ * Tests for RegularContainer
  *
  * @package  Bluz\Tests\Common
  *

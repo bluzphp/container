@@ -8,21 +8,21 @@
 namespace Bluz\Tests\Container;
 
 use PHPUnit\Framework\TestCase;
-use Bluz\Tests\Container\Fixtures\ConcreteContainer;
+use Bluz\Tests\Container\Fixtures\SimpleContainer;
 
 /**
- * Tests for Container traits
+ * Tests for SimpleContainer
  *
  * @package  Bluz\Tests\Common
  *
  * @author   Anton Shevchuk
  */
-class ContainerTest extends TestCase
+class SimpleContainerTest extends TestCase
 {
     /**
-     * @var ConcreteContainer
+     * @var SimpleContainer
      */
-    protected ConcreteContainer $class;
+    protected SimpleContainer $class;
 
     protected array $example = [
         'foo' => 'bar',
@@ -35,11 +35,11 @@ class ContainerTest extends TestCase
      */
     protected function setUp(): void
     {
-        $this->class = new ConcreteContainer();
+        $this->class = new SimpleContainer();
     }
 
     /**
-     * Test setup Container from array and get as array
+     * Test setup SimpleContainer from the array and get as the array
      */
     public function testSetFromArray()
     {
@@ -49,11 +49,12 @@ class ContainerTest extends TestCase
     }
 
     /**
-     * Test Reset Container data to null
+     * Test Reset SimpleContainer data to null
      */
     public function testResetContainer()
     {
         $this->class->setFromArray($this->example);
+
         $this->class->resetArray();
 
         $result = $this->class->toArray();
@@ -62,15 +63,5 @@ class ContainerTest extends TestCase
         self::assertArrayHasKey('quz', $result);
         self::assertNull($result['foo']);
         self::assertNull($result['quz']);
-    }
-
-    /**
-     * Test JsonSerialize implementation
-     */
-    public function testJsonSerialize()
-    {
-        $this->class->setFromArray($this->example);
-
-        self::assertJsonStringEqualsJsonString(json_encode($this->example), json_encode($this->class));
     }
 }

@@ -12,7 +12,7 @@ declare(strict_types=1);
 namespace Bluz\Container;
 
 /**
- * Container of data for object
+ * Container of data for an object
  *
  * @package  Bluz\Common
  * @author   Anton Shevchuk
@@ -102,7 +102,7 @@ trait Container
     }
 
     /**
-     * Reset container array
+     * Reset the container array
      *
      * @return void
      */
